@@ -5,7 +5,7 @@ const PORT = 3000;
 // シークレットキー
 const stripe = require('stripe')('sk_test_51OwJ4iKhKNkDMmE5r76y79tcC6ZRlb3xiWVBK25mC67XaRieiskJaZb0gdpqOm2xSj7FzeTGlMTt1VJxZrLX9cAS00RE3jMvzE');
 
-const YOUR_DOMAIN = "localhost:3000";
+const YOUR_DOMAIN = "http://localhost:3000";
 
 app.use(express.static("public"));
 
@@ -16,7 +16,7 @@ app.post("/create-checkout-session", async (req, res) => {
     const prices = await stripe.prices.list();
 
     // sessionを作成 (何を購入したのか、購入した量などの情報)
-    const session = await stripe.checkout.create({
+    const session = await stripe.checkout.sessions.create({
       line_items: [{
         price: prices.data[0].id,
         quantity: 1,
