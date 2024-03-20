@@ -24,7 +24,7 @@ app.post("/create-checkout-session", async (req, res) => {
       mode: "subscription",
       
       // どこに飛ぶかURLを指定
-      success_url: `${YOUR_DOMAIN}/success.html?session_id{CHECKOUT_SESSION_ID}`,
+      success_url: `${YOUR_DOMAIN}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       
       // キャンセルした時のURL
       cancel_url: `${YOUR_DOMAIN}/cancel.html`,
