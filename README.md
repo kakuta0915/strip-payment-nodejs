@@ -1,1 +1,0 @@
-# strip-payment-syetem
